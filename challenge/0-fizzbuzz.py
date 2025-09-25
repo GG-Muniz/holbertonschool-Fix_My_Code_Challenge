@@ -2,29 +2,23 @@
 import sys
 
 
-def fizzbuzz(n):
-    output = []
-    for value in range(1, n + 1):
-        token = ""
-        if value % 3 == 0:
-            token += "Fizz"
-        if value % 5 == 0:
-            token += "Buzz"
-        if not token:
-            token = str(value)
-        output.append(token)
-    return output
-
-
 def main():
-    if len(sys.argv) < 2:
-        print(" ".join(fizzbuzz(100)))
-        return
     try:
-        limit = int(sys.argv[1])
-    except ValueError:
+        limit = int(sys.argv[1]) if len(sys.argv) > 1 else 100
+    except (ValueError, TypeError):
         sys.exit(1)
-    print(" ".join(fizzbuzz(limit)))
+
+    for i in range(1, limit + 1):
+        if i % 15 == 0:
+            token = "FizzBuzz"
+        elif i % 3 == 0:
+            token = "Fizz"
+        elif i % 5 == 0:
+            token = "Buzz"
+        else:
+            token = str(i)
+        end_char = "\n" if i == limit else " "
+        print(token, end=end_char)
 
 
 if __name__ == "__main__":
