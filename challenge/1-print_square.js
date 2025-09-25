@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 
 const arg = process.argv[2];
 const size = parseInt(arg, 10);
@@ -11,5 +11,3 @@ const line = '#'.repeat(size);
 for (let i = 0; i < size; i += 1) {
   console.log(line);
 }
-
-
